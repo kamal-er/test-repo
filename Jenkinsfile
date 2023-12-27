@@ -4,14 +4,32 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Étape pour récupérer le code à partir du référentiel Git
-                git 'https://github.com/votre-utilisateur/votre-projet.git'
+                checkout scm
             }
         }
-        stage('Build') {
+
+        stage('Install Dependencies') {
             steps {
-                // Étape de construction simple, par exemple, exécuter un script shell
-                sh './build.sh'
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh 'npm test'
+                }
+            }
+        }
+
+        stage('Deploy to Test Server') {
+            steps {
+                script {
+                    // Déployer sur le serveur de test (remplacez avec votre propre script ou commande)
+                    sh 'ssh user@test-server "cd /path/to/app && git pull && npm install && pm2 restart app"'
+                }
             }
         }
     }
