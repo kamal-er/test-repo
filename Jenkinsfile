@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     // Déployer sur le serveur de test (remplacez avec votre propre script ou commande)
-                    sh 'ssh user@test-server "cd /path/to/app && git pull && npm install && pm2 restart app"'
+                    sh 'ssh user1@localhost:8080 "cd /path/to/app && git pull && npm install && pm2 restart app"'
                 }
             }
         }
