@@ -1,0 +1,45 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - name: nom
+    value: eazytraining
+  - name: formateur
+    value: Franklin
+
+stages:
+  - stage:
+    displyName: 'Le premier stage'
+    jobs:
+    - job:
+      displyName: 'Le premier job'
+      steps:
+      - script: echo $(nom)
+        displayName: 'Run a one-line script'
+
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
+
+  - stage:
+    displayName: 'Le deuxième stage'
+    jobs:
+    - job:
+      displayName: 'Le deuxième job'
+      steps:
+      - script: echo $(formateur)
+        displayName: 'Run a one-line script'
+
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
