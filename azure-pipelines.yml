@@ -17,10 +17,10 @@ variables:
 
 stages:
   - stage:
-    displyName: 'Le premier stage'
+    displayName: 'Le premier stage'
     jobs:
     - job:
-      displyName: 'Le premier job'
+      displayName: 'Le premier job'
       steps:
       - script: echo $(nom)
         displayName: 'Run a one-line script'
